@@ -28,6 +28,35 @@ public class User {
         return  lastName;
     }
 
+    public void setInt(int age)
+    {
+        this.age = age;
+    }
+
+    public int getAge()
+    {
+        return age;
+    }
+
+    public void setPay(double pay)
+    {
+        this.pay = pay;
+    }
+
+    public double getPay()
+    {
+        return pay;
+    }
+
+    public void setGender(char gender)
+    {
+        this.gender = gender;
+    }
+
+    public char getGender()
+    {
+        return gender;
+    }
 
 
 

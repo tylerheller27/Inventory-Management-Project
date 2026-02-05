@@ -9,7 +9,6 @@ public class Main {
         System.out.println("please enter a user's first name");
         String firstName = userInput.next(); // getting initial user input
 
-
         // testing user input variable firstName for input validation to see if it only contains letters. if it passes then it will
         // be passed to User class's setter method setFirstName to set the first name field.
         while (Validation.IsOnlyLetters(firstName) == false)

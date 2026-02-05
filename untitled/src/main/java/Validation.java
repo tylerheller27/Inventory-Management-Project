@@ -22,5 +22,17 @@ public class Validation {
         return true;
     }//isNumber
 
+    pulic static boolean isValidGender(char gender)
+    {
+        if(gender == 'M' || gender == 'F')
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
 
 }//class
