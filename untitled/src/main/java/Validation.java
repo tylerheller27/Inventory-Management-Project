@@ -16,13 +16,16 @@ public class Validation {
         try{
             Integer.parseInt(number);
         }//try
+
+
         catch (NumberFormatException e) {
             throw new RuntimeException(e);
         }//catch
         return true;
+
     }//isNumber
 
-    pulic static boolean isValidGender(char gender)
+    public static boolean isValidGender(char gender)
     {
         if(gender == 'M' || gender == 'F')
         {
@@ -31,7 +34,17 @@ public class Validation {
         else {
             return false;
         }
+    }//isValidGender
 
+    public static boolean isExit(String userInput)
+    {
+        if(userInput.equalsIgnoreCase("exit"))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 
