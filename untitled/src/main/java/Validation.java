@@ -11,6 +11,9 @@ public class Validation {
         }
     }//onlyLetters
 
+    // -------------------------------------------------------------------------
+
+     /*
     public static boolean isNumber(String number)
     {
         try{
@@ -24,10 +27,16 @@ public class Validation {
         return true;
 
     }//isNumber
+*/
 
-    public static boolean isValidGender(char gender)
+    // ------------------------------------------------------------------------------
+
+
+    public static boolean isValidGender(String gender)
     {
-        if(gender == 'M' || gender == 'F')
+
+        gender.toUpperCase();
+        if(gender == "M" || gender == "F")
         {
             return true;
         }
@@ -35,6 +44,8 @@ public class Validation {
             return false;
         }
     }//isValidGender
+
+    // -------------------------------------------------------------------------------
 
     public static boolean isExit(String userInput)
     {
@@ -47,5 +58,6 @@ public class Validation {
         }
     }
 
+    // -------------------------------------------------------------------------------
 
 }//class

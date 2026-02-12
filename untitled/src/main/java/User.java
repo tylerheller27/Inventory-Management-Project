@@ -6,7 +6,7 @@ public class User {
     private String department;
     private int age;
     private double pay;
-    private char gender;
+    private String gender;
 
     public void setFirstName(String firstName)
     {
@@ -18,6 +18,8 @@ public class User {
         return firstName;
     }//getFristName
 
+    // ---
+
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
@@ -28,12 +30,16 @@ public class User {
         return  lastName;
     }
 
+    // ---
+
     public void setAge(int age) { this.age = age; }
 
     public int getAge()
     {
         return age;
     }
+
+    // ---
 
     public void setPay(double pay)
     {
@@ -45,12 +51,14 @@ public class User {
         return pay;
     }
 
-    public void setGender(char gender)
+    //---
+
+    public void setGender(String gender)
     {
         this.gender = gender;
     }
 
-    public char getGender()
+    public String getGender()
     {
         return gender;
     }
