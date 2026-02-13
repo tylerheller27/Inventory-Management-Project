@@ -9,7 +9,7 @@ public class Main {
         User user1 = new User(); // initializing user object
         Scanner userInput = new Scanner(System.in); // creating Scanner object to get user input.
 
-        while(true) {
+        while(true) {//menu loop
 
             System.out.println("please enter a user's first name");
             String firstName = userInput.next(); // getting initial user input
@@ -17,7 +17,7 @@ public class Main {
             // testing user input variable firstName for input validation to see if it only contains letters. if it passes then it will
             // be passed to User class's setter method setFirstName to set the first name field.
 
-            while (Validation.IsOnlyLetters(firstName) == false) {
+            while (Validation.isOnlyLetters(firstName) == false) {
                 System.out.println("please enter a first name using only letters");
                 firstName = userInput.next();
             }
@@ -25,18 +25,18 @@ public class Main {
             if(Validation.isExit(firstName))//looking for exit to close the program
             {
                 System.out.println("Exiting Program");
-                break;
+                System.exit(0);
             }
 
             user1.setFirstName(firstName);
             System.out.println(user1.getFirstName());//for testing
 
-            // ---------------------------------------------------------------------------
+            // ********************************************************************************************************
 
             System.out.println("Please enter the users Last name");
             String lastName = userInput.next();
 
-            while (Validation.IsOnlyLetters(lastName) == false)
+            while (Validation.isOnlyLetters(lastName) == false)
             {
                 System.out.println("please enter a last name using only letters");
                 lastName = userInput.next();
@@ -45,39 +45,41 @@ public class Main {
             if(Validation.isExit(lastName))//looking for exit to close the program
             {
                 System.out.println("Exiting Program");
-                break;
+                System.exit(0);
             }
 
             user1.setLastName(lastName);
             System.out.println(user1.getLastName());//for testing
 
-            // ---------------------------------------------------------------------------
+            // *****************************************************************************************************
 
             System.out.println("Please enter the users age");
 
             while(true)
             {
-                try
-                {
-                    String ageInput = userInput.next();
-                    if (Validation.isExit(ageInput) == true) //need to check for "exit" to close the program.
+                // if ageInput is incorrect and throws an exception, the catch block will prompt the user to enter a
+                // valid age then the continue statement will start the loop over to get user input again
+                String ageInput = userInput.next();
+                try {
+
+                    if (Validation.isExit(ageInput)) //need to check for "exit" to close the program.
                     {
-                        break;
-                    }
+                        System.exit(0);
+                    }//
+
                     user1.setAge(Integer.parseInt(ageInput));
                     System.out.println(user1.getAge());
-                    break;
+                    break; //exit out of loop if we are successfully able use setAge();
+
                 }//try
                 catch (NumberFormatException e)
                 {
                     System.out.println("please enter a valid age");
+                    continue;
                 }//catch
+            }//while loop user age
 
-
-
-            }//while
-
-            // ----------------------------------------------------------------------------
+            // ******************************************************************************************************
 
 
             // will check if user input is only letters
@@ -88,27 +90,22 @@ public class Main {
             String gender = userInput.next();
             while(true)
             {
-                System.out.println("please enter the users gender. type M for male or F for female");
-                gender = userInput.next();
 
-                while (Validation.IsOnlyLetters(gender) == false ) {             //checking to see if input is only letters
-                    System.out.println("Only letters are aloud. please enter M for male or F for female");
-                     gender = userInput.next();
-                } //while
+                if(Validation.isExit(gender))//looking for exit to close the program
+                {
+                    System.out.println("Exiting Program");
+                    System.exit(0);
+                }
+
                 while (Validation.isValidGender(gender) == false)
                 {
                     System.out.println("Invalid Gender choice. please enter M for male or F for female");
                     gender = userInput.next();
                 }
 
-                if(Validation.isExit(gender))//looking for exit to close the program
-                {
-                    System.out.println("Exiting Program");
-                    break;
-                }
-
                 user1.setGender(gender);
                 System.out.println(user1.getGender());
+                break;
 
                 // ----------------------------------------------------------------------
 
@@ -119,6 +116,7 @@ public class Main {
             System.out.println(user1.getFirstName());
             System.out.println(user1.getLastName());
             System.out.println(user1.getAge());
+            System.out.println(user1.getGender());
 
             break; // just terminating the program while I develop it.
 
