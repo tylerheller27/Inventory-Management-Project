@@ -7,7 +7,8 @@ public class Department {
     private String departmentName;
     private int numberOfEmployees;
 
-    public Department(String departmentName)
+
+    public void setDepartmentName(String departmentName)
     {
         this.departmentName = departmentName;
     }
@@ -17,10 +18,7 @@ public class Department {
         return departmentName;
     }
 
-    public void listDepartments()
-    {
 
-    }
 
 
 

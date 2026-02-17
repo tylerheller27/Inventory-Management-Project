@@ -6,30 +6,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Department> departmentArrayList =  new ArrayList<>();
-
-        Scanner scanner = new Scanner(System.in);
+        //ArrayList<Department> departmentArrayList =  new ArrayList<>();
+        //DepartmentMenu departmentMenu = new DepartmentMenu();
+        ObjectStorage storage = new ObjectStorage(); // initializing in main so this persists throughout menus.
+        Scanner scanner = new Scanner(System.in); // initializing in main so this persists throughout menus.
+        DepartmentMenu departmentMenu = new DepartmentMenu(storage, scanner);//
 
        while(true){
 
            System.out.println("Welcome to the Employee Management System");
-           System.out.println("type 1 to Create a Department");
-           System.out.println("type 2 to List all Departments");
-           System.out.println("type 3 to Create an Employee");
+           System.out.println("type 1 to go to Department Menu");
+           System.out.println("type 2 to List all Departments (NOT DEVELOPED)");
+           System.out.println("type 3 to Create an Employee (NOT DEVELOPED)");
 
-           String userInput = scanner.next();
+           String userInput = scanner.nextLine();
 
            switch(userInput)
            {
 
                case "1":
-                   System.out.println("Creating a Department");
-                   System.out.println("Type the name of the Department");
-                   String departmentName = scanner.next();
-                   Department department = new Department(departmentName);
-                   departmentArrayList.add(department);
-
-
+                   departmentMenu.run();
 
                    break;
 
