@@ -11,26 +11,7 @@ public class Validation {
         }
     }//onlyLetters
 
-    // -------------------------------------------------------------------------
-
-     /*
-    public static boolean isNumber(String number)
-    {
-        try{
-            Integer.parseInt(number);
-        }//try
-
-
-        catch (NumberFormatException e) {
-            throw new RuntimeException(e);
-        }//catch
-        return true;
-
-    }//isNumber
-*/
-
-    // ------------------------------------------------------------------------------
-
+    // ********************************************************************************************************
 
     public static boolean isValidGender(String gender)
     {
@@ -45,7 +26,7 @@ public class Validation {
         }
     }//isValidGender
 
-    // -------------------------------------------------------------------------------
+    // ********************************************************************************************************
 
     public static boolean isExit(String userInput)
     {
