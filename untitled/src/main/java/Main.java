@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -11,31 +10,34 @@ public class Main {
         ObjectStorage storage = new ObjectStorage(); // initializing in main so this persists throughout menus.
         Scanner scanner = new Scanner(System.in); // initializing in main so this persists throughout menus.
         DepartmentMenu departmentMenu = new DepartmentMenu(storage, scanner);//
+        UserMenu userMenu = new UserMenu(storage, scanner);
+
+        System.out.println("Welcome to the Employee Management System");
 
        while(true){
 
-           System.out.println("Welcome to the Employee Management System");
+           System.out.println("        Main Menu ");
            System.out.println("type 1 to go to Department Menu");
-           System.out.println("type 2 to List all Departments (NOT DEVELOPED)");
+           System.out.println("type 2 to List all Departments");
            System.out.println("type 3 to Create an Employee (NOT DEVELOPED)");
 
            String userInput = scanner.nextLine();
 
            switch(userInput)
            {
-
                case "1":
                    departmentMenu.run();
-
-                   break;
+                   continue; //once the program returns from its submenu the main menu loop is restarted.
 
                case "2":
                    System.out.println("List all Departments");
-                   break;
+                   storage.listDepartments();
+                   continue;
 
                case "3":
-                   System.out.println("Create an Employee");
-                   break;
+                   System.out.println("Create an User");
+                   userMenu.run();
+                   continue;
 
                case "exit":
                    System.out.println("Exiting program");

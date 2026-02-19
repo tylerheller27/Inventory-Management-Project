@@ -19,6 +19,7 @@ public class DepartmentMenu {
 
             System.out.println("Press 1 to Create a Department");
             System.out.println("Press 2 to list Departments (NOT DEVELOPED)");
+            System.out.println("Type exit to return to Main menu");
             String userInput = scanner.nextLine();
 
             switch(userInput)
@@ -29,23 +30,23 @@ public class DepartmentMenu {
                     String departmentName = scanner.nextLine();
                     department.setDepartmentName(departmentName);
                     storage.addDepartment(department);
-                    storage.listDepartments();
+                    storage.listDepartments();// for testing output
                     continue;
 
                 case "2":
-                    System.out.println("Listing all Departments");
+                    System.out.println("Listing all Departments\n");
                     storage.listDepartments();
                     continue;
 
 
 
                 case "exit":
-                    System.out.println("Exiting Department Menu");
+                    System.out.println("Exiting Department Menu\n");
                     return;
 
 
                 default:
-                    System.out.println("invalid input");
+                    System.out.println("invalid input\n");
 
             }// switch
 

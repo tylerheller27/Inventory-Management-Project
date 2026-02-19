@@ -2,6 +2,15 @@ import java.util.Scanner;
 
 public class UserMenu {
 
+    ObjectStorage storage;
+    Scanner scanner;
+
+    public UserMenu(ObjectStorage storage, Scanner scanner) //
+    {
+        this.storage = storage;
+        this.scanner = scanner;
+    }
+
 public void run()
 {
 

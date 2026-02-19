@@ -11,21 +11,39 @@ public class ObjectStorage {
         departments.add(department);
     }
 
+    public void addUser(User user) { users.add(user); }
+
+
+
     public void listDepartments()
     {
         if(departments.isEmpty())
         {
-            System.out.println("There is no department to list" + "/n");
+            System.out.println("There is no department to list \n" );
         }
 
 
         for (int i = 0; i<departments.size();i++)
         {
             Department department = departments.get(i);
-            System.out.println(department.toString());
+            System.out.println("Department Name: " + department.getDepartmentName());
         }
     }
 
+    public void listUsers()
+    {
+        if(users.isEmpty())
+        {
+            System.out.println("There is no department to list \n" );
+        }
+
+
+        for (int i = 0; i<users.size();i++)
+        {
+            User user = users.get(i);
+            System.out.println("Users Name: " + user.getFirstName());
+        }
+    }
 
 
 
