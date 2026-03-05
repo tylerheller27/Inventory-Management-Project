@@ -12,14 +12,14 @@ public class Main {
         DepartmentMenu departmentMenu = new DepartmentMenu(storage, scanner);//
         UserMenu userMenu = new UserMenu(storage, scanner);
 
-        System.out.println("Welcome to the Employee Management System");
+        System.out.println("Welcome to the Employee Management System\n");
 
        while(true){
 
-           System.out.println("        Main Menu ");
+           System.out.println("          Main Menu ");
            System.out.println("type 1 to go to Department Menu");
            System.out.println("type 2 to List all Departments");
-           System.out.println("type 3 to Create an Employee (NOT DEVELOPED)");
+           System.out.println("type 3 Create an employee \n");
 
            String userInput = scanner.nextLine();
 
@@ -30,11 +30,17 @@ public class Main {
                    continue; //once the program returns from its submenu the main menu loop is restarted.
 
                case "2":
-                   System.out.println("List all Departments");
+                   System.out.println("Listing all Departments");
                    storage.listDepartments();
                    continue;
 
                case "3":
+                   if(storage.departments.isEmpty())
+                   {
+                       System.out.println("you need to create at least one department before creating employees!");
+                       System.out.println("please create a department");
+                       continue;
+                   }
                    System.out.println("Create an User");
                    userMenu.run();
                    continue;

@@ -15,7 +15,9 @@ public void run()
 {
 
     System.out.println("type exit to close program at any time");
-    User user1 = new User(); // initializing user object
+
+    User user1 = new User(); // initializing user object // maybe move in while loop to enable the ability to create
+    // multiple user at sequentially.
     Scanner userInput = new Scanner(System.in); // creating Scanner object to get user input.
 
     while(true) {//menu loop for collecting user/employee info
@@ -33,8 +35,8 @@ public void run()
 
         if(Validation.isExit(firstName))//looking for exit to close the program
         {
-            System.out.println("Exiting Program");
-            System.exit(0);
+            System.out.println("Exiting User creation. Returning to Main Menu \n");
+            return;//      *******************change to return.
         }
 
         user1.setFirstName(firstName);

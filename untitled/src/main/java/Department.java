@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Department {
 
     //ArrayList<Department> departmentArrayList =  new ArrayList<User>();
-
+    ArrayList<User> departmentUserList = new ArrayList<>();
     private String departmentName;
     private int numberOfEmployees;
 

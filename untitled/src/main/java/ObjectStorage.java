@@ -19,7 +19,7 @@ public class ObjectStorage {
     {
         if(departments.isEmpty())
         {
-            System.out.println("There is no department to list \n" );
+            System.out.println("\nThere are no departments to list \n" );
         }
 
 
@@ -28,6 +28,7 @@ public class ObjectStorage {
             Department department = departments.get(i);
             System.out.println("Department Name: " + department.getDepartmentName());
         }
+        System.out.println(" ");
     }
 
     public void listUsers()

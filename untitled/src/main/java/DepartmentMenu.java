@@ -31,6 +31,7 @@ public class DepartmentMenu {
                     department.setDepartmentName(departmentName);
                     storage.addDepartment(department);
                     storage.listDepartments();// for testing output
+
                     continue;
 
                 case "2":
