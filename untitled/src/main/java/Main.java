@@ -7,6 +7,7 @@ public class Main {
 
         //ArrayList<Department> departmentArrayList =  new ArrayList<>();
         //DepartmentMenu departmentMenu = new DepartmentMenu();
+
         ObjectStorage storage = new ObjectStorage(); // initializing in main so this persists throughout menus.
         Scanner scanner = new Scanner(System.in); // initializing in main so this persists throughout menus.
         DepartmentMenu departmentMenu = new DepartmentMenu(storage, scanner);//
@@ -26,19 +27,20 @@ public class Main {
            switch(userInput)
            {
                case "1":
+                   // enter into the department menu
                    departmentMenu.run();
-                   continue; //once the program returns from its submenu the main menu loop is restarted.
+                   continue; //once the program preform it action the main menu loop is restarted.
 
                case "2":
                    System.out.println("Listing all Departments");
                    storage.listDepartments();
-                   continue;
+                   continue; //once the program preform it action the main menu loop is restarted.
 
                case "3":
-                   if(storage.departments.isEmpty())
+                   if(storage.departmentArrayList.isEmpty())
                    {
                        System.out.println("you need to create at least one department before creating employees!");
-                       System.out.println("please create a department");
+                       System.out.println("please create a department\n");
                        continue;
                    }
                    System.out.println("Create an User");

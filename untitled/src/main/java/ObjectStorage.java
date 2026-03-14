@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class ObjectStorage {
 
     //ObjectStorage storage = new ObjectStorage();
-    ArrayList<Department> departments = new ArrayList<Department>();
+    ArrayList<Department> departmentArrayList = new ArrayList<Department>();
     ArrayList<User> users = new ArrayList<User>();
 
     public void addDepartment(Department department)
     {
-        departments.add(department);
+        departmentArrayList.add(department);
     }
 
     public void addUser(User user) { users.add(user); }
@@ -17,15 +17,15 @@ public class ObjectStorage {
 
     public void listDepartments()
     {
-        if(departments.isEmpty())
+        if(departmentArrayList.isEmpty())
         {
             System.out.println("\nThere are no departments to list \n" );
         }
 
 
-        for (int i = 0; i<departments.size();i++)
+        for (int i = 0; i< departmentArrayList.size(); i++)
         {
-            Department department = departments.get(i);
+            Department department = departmentArrayList.get(i);
             System.out.println("Department Name: " + department.getDepartmentName());
         }
         System.out.println(" ");
