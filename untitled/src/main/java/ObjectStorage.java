@@ -58,9 +58,19 @@ public class ObjectStorage {
                    System.out.println("Users Name: " + departmentArrayList.get(i).departmentUserList.get(j).getFirstName());
                      }//for
                 }//else
+            System.out.println(" ");
         }//for
 
     }//listUsers
+
+    public boolean isDepartmentArrayListEmpty()
+    {
+        if(departmentArrayList.isEmpty())
+        {
+            return true;
+        }
+        return false;
+    }
 
 
 
