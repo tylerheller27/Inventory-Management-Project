@@ -129,20 +129,17 @@ public void run()
         System.out.println("please enter what department the employee belongs to");
         System.out.println("Current departments: ");
 
-        //can create a list department method in the future.
+        //listing current department to user so they can decide what
+        //deparment they would like to add the user to
+        storage.listDepartments();
 
-        for(int i = 0; i < storage.departmentArrayList.size(); i++)
-        {
-            String dptName = storage.departmentArrayList.get(i).getDepartmentName();
-            System.out.println(dptName);
-        }
-
-        scanner.nextLine();// clearning newline sicne i used next() previously.
+        scanner.nextLine();// clearing newline from scanner obj sicne i used next() previously.
 
         while(true) {
 
             String userDepartmentChoice = scanner.nextLine();
-            boolean departmentFound = false;
+           // boolean departmentFound = false; // this maybe bad desicn along with the if statemment
+            //below using the departmentFound variable.
 
             /*
             looping through objectStorages's arraylist of Department objects called departmentArrayList and assigning
@@ -157,22 +154,28 @@ public void run()
 
                 if (dptName.equalsIgnoreCase(userDepartmentChoice)) //
                 {
-                    storage.departmentArrayList.get(i).departmentUserList.add(userObject);
+                    storage.departmentArrayList.get(i).departmentUserList.add(userObject);//issue
                     System.out.println("user added to " + dptName);
-                    break;
+                    return;
                 }//if
             }//for
 
+            /*
             if (departmentFound == false)
             {
-                break;
+                System.out.println("please enter a valid department name");
+                continue;
             }
+            */
+
 
             System.out.println("please enter a valid department name");
+            continue;
+
 
         }// while
 
-        return;// return to main menu after successfully adding user to user arraylist
+        //return;// return to main menu after successfully adding user to user arraylist
 
     }//MENU EXIT VARIABLE
 

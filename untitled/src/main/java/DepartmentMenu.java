@@ -39,7 +39,9 @@ public class DepartmentMenu {
                     storage.listDepartments();
                     continue;
 
-
+                case "3":
+                    System.out.println("poop");
+                    continue;
 
                 case "exit":
                     System.out.println("Exiting Department Menu\n");

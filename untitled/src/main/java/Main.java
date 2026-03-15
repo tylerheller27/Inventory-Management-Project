@@ -20,7 +20,8 @@ public class Main {
            System.out.println("          Main Menu ");
            System.out.println("type 1 to go to Department Menu");
            System.out.println("type 2 to List all Departments");
-           System.out.println("type 3 Create an employee \n");
+           System.out.println("type 3 Create an employee ");
+           System.out.println("type 4 to List all Users/employee's\n");
 
            String userInput = scanner.nextLine();
 
@@ -37,6 +38,9 @@ public class Main {
                    continue; //once the program preform it action the main menu loop is restarted.
 
                case "3":
+                   //planning on changing:
+                   //instead of check if the arraylist is empty ill need to create a method to check if empty
+                   //in the object storage class
                    if(storage.departmentArrayList.isEmpty())
                    {
                        System.out.println("you need to create at least one department before creating employees!");
@@ -47,6 +51,11 @@ public class Main {
                    userMenu.run();
                    continue;
 
+               case "4":
+                   System.out.println("Listing all Users/employee's");
+                   storage.listUsers();
+
+                       continue;
                case "exit":
                    System.out.println("Exiting program");
                    System.exit(0);
