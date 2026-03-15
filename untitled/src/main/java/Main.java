@@ -1,126 +1,66 @@
 import java.util.Scanner;
 
+
 public class Main {
 
     public static void main(String[] args) {
 
-        //String exitVariable;
-        System.out.println("type exit to close program at any time");
-        User user1 = new User(); // initializing user object
-        Scanner userInput = new Scanner(System.in); // creating Scanner object to get user input.
+        //ArrayList<Department> departmentArrayList =  new ArrayList<>();
+        //DepartmentMenu departmentMenu = new DepartmentMenu();
 
-        while(true) {//menu loop
+        ObjectStorage storage = new ObjectStorage(); // initializing in main so this persists throughout menus.
+        Scanner scanner = new Scanner(System.in); // initializing in main so this persists throughout menus.
+        DepartmentMenu departmentMenu = new DepartmentMenu(storage, scanner);//
+        UserMenu userMenu = new UserMenu(storage, scanner);
 
-            System.out.println("please enter a user's first name");
-            String firstName = userInput.next(); // getting initial user input
+        System.out.println("Welcome to the Employee Management System\n");
 
-            // testing user input variable firstName for input validation to see if it only contains letters. if it passes then it will
-            // be passed to User class's setter method setFirstName to set the first name field.
+       while(true){
 
-            while (Validation.isOnlyLetters(firstName) == false) {
-                System.out.println("please enter a first name using only letters");
-                firstName = userInput.next();
-            }
+           System.out.println("          Main Menu ");
+           System.out.println("type 1 to go to Department Menu");
+           System.out.println("type 2 to List all Departments");
+           System.out.println("type 3 Create an employee \n");
 
-            if(Validation.isExit(firstName))//looking for exit to close the program
-            {
-                System.out.println("Exiting Program");
-                System.exit(0);
-            }
+           String userInput = scanner.nextLine();
 
-            user1.setFirstName(firstName);
-            System.out.println(user1.getFirstName());//for testing
+           switch(userInput)
+           {
+               case "1":
+                   // enter into the department menu
+                   departmentMenu.run();
+                   continue; //once the program preform it action the main menu loop is restarted.
 
-            // ********************************************************************************************************
+               case "2":
+                   System.out.println("Listing all Departments");
+                   storage.listDepartments();
+                   continue; //once the program preform it action the main menu loop is restarted.
 
-            System.out.println("Please enter the users Last name");
-            String lastName = userInput.next();
+               case "3":
+                   if(storage.departmentArrayList.isEmpty())
+                   {
+                       System.out.println("you need to create at least one department before creating employees!");
+                       System.out.println("please create a department\n");
+                       continue;
+                   }
+                   System.out.println("Create an User");
+                   userMenu.run();
+                   continue;
 
-            while (Validation.isOnlyLetters(lastName) == false)
-            {
-                System.out.println("please enter a last name using only letters");
-                lastName = userInput.next();
-            }
+               case "exit":
+                   System.out.println("Exiting program");
+                   System.exit(0);
 
-            if(Validation.isExit(lastName))//looking for exit to close the program
-            {
-                System.out.println("Exiting Program");
-                System.exit(0);
-            }
+                   System.out.println("Invalid input");
+                   System.out.println("please enter a valid menu choice");
+                   continue;
 
-            user1.setLastName(lastName);
-            System.out.println(user1.getLastName());//for testing
+           }//switch
 
-            // *****************************************************************************************************
+           System.out.println("programing ending");
+           break;
 
-            System.out.println("Please enter the users age");
-
-            while(true)
-            {
-                // if ageInput is incorrect and throws an exception, the catch block will prompt the user to enter a
-                // valid age then the continue statement will start the loop over to get user input again
-                String ageInput = userInput.next();
-                try {
-
-                    if (Validation.isExit(ageInput)) //need to check for "exit" to close the program.
-                    {
-                        System.exit(0);
-                    }//
-
-                    user1.setAge(Integer.parseInt(ageInput));
-                    System.out.println(user1.getAge());
-                    break; //exit out of loop if we are successfully able use setAge();
-
-                }//try
-                catch (NumberFormatException e)
-                {
-                    System.out.println("please enter a valid age");
-                    continue;
-                }//catch
-            }//while loop user age
-
-            // ******************************************************************************************************
-
-
-            // will check if user input is only letters
-            // will check if  user input is was only 1 letter for gender
-            // will ch
-
-            System.out.println("Please enter the users gender");
-            String gender = userInput.next();
-            while(true)
-            {
-
-                if(Validation.isExit(gender))//looking for exit to close the program
-                {
-                    System.out.println("Exiting Program");
-                    System.exit(0);
-                }
-
-                while (Validation.isValidGender(gender) == false)
-                {
-                    System.out.println("Invalid Gender choice. please enter M for male or F for female");
-                    gender = userInput.next();
-                }
-
-                user1.setGender(gender);
-                System.out.println(user1.getGender());
-                break;
-
-                // ----------------------------------------------------------------------
-
-            }//while
-
-
-            //for testing
-            System.out.println(user1.getFirstName());
-            System.out.println(user1.getLastName());
-            System.out.println(user1.getAge());
-            System.out.println(user1.getGender());
-
-            break; // just terminating the program while I develop it.
-
-        }//MENU EXIT VARIABLE
+       }//big while
         
     }//psvm
 
