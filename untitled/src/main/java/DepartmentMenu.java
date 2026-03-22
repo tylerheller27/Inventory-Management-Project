@@ -27,6 +27,7 @@ public class DepartmentMenu {
                 case "1":
                     System.out.println("Please enter the Department Name");
                     Department department =  new Department(); //creating new department object inside case 1.
+
                     String departmentName = scanner.nextLine();
                     department.setDepartmentName(departmentName);
                     storage.addDepartment(department);

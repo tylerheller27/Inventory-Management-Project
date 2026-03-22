@@ -30,7 +30,8 @@ public class Main {
            System.out.println("type 1 for Department Menu");
            System.out.println("type 2 To List All Departments");
            System.out.println("type 3 To Create an employee");
-           System.out.println("type 4 to List all Users/employee's\n");
+           System.out.println("type 4 To List all Users/employee's");
+           System.out.println("type exit to close program\n");
 
            String userInput = scanner.nextLine();
 
@@ -46,38 +47,26 @@ public class Main {
                    continue; //restarts main menu loop
 
                case "3":
-                   //planning on changing:
-                   //instead of check if the arraylist is empty ill need to create a method to check if empty
-                   //in the object storage class
-                   if(storage.isDepartmentArrayListEmpty())
-                   {
-                       System.out.println("you need to create at least one department before creating employees!");
-                       System.out.println("please create a department\n");
-                       continue;
-                   }
-                   System.out.println("Create an User");
                    userMenu.run();
-                   continue;
+                   continue;//restarts main menu loop
 
                case "4":
                    System.out.println("Listing all Users/employee's");
                    storage.listUsers();
+                   continue;////restarts main menu loop
 
-                       continue;
                case "exit":
                    System.out.println("Exiting program");
                    System.exit(0);
 
+               default:
                    System.out.println("Invalid input");
                    System.out.println("please enter a valid menu choice");
                    continue;
 
            }//switch
 
-           System.out.println("programing ending");
-           break;
-
-       }//big while
+       }//Menu While
         
     }//psvm
 

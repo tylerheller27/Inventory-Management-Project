@@ -38,7 +38,8 @@ public class ObjectStorage {
         //checking to see if a department was created since this is required to create a user
         if(departmentArrayList.isEmpty())
         {
-            System.out.println("\nno employee's to list bacuase there are no deparments \n" );
+            System.out.println("\nno employee's to list because there are no departments \n" );
+            return;
         }
 
 

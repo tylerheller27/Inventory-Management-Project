@@ -14,11 +14,21 @@ public class UserMenu {
 public void run()
 {
 
+    //at least one department is required to
+    if(storage.isDepartmentArrayListEmpty())
+    {
+        System.out.println("you need to create at least one department before creating employees!");
+        System.out.println("please create a department\n");
+        return;
+    }
+
+    System.out.println("Create an User");
+
     System.out.println("type exit to close program at any time");
 
     User userObject = new User(); // initializing user object // maybe move in while loop to enable the ability to create
     // multiple user at sequentially.
-    //Scanner userInput = new Scanner(System.in); // creating Scanner object to get user input.
+
 
     while(true) {//menu loop for collecting user/employee info
 
@@ -175,7 +185,6 @@ public void run()
 
         }// while
 
-        //return;// return to main menu after successfully adding user to user arraylist
 
     }//MENU EXIT VARIABLE
 
