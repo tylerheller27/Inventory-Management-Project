@@ -3,7 +3,6 @@ public class User {
     //Fields
     private String firstName;
     private String lastName;
-    private String department;
     private int age;
     private double pay;
     private String gender;

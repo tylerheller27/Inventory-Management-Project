@@ -14,11 +14,21 @@ public class UserMenu {
 public void run()
 {
 
+    //at least one department is required to
+    if(storage.isDepartmentArrayListEmpty())
+    {
+        System.out.println("you need to create at least one department before creating employees!");
+        System.out.println("please create a department\n");
+        return;
+    }
+
+    System.out.println("Create an User");
+
     System.out.println("type exit to close program at any time");
 
     User userObject = new User(); // initializing user object // maybe move in while loop to enable the ability to create
     // multiple user at sequentially.
-    //Scanner userInput = new Scanner(System.in); // creating Scanner object to get user input.
+
 
     while(true) {//menu loop for collecting user/employee info
 
@@ -129,20 +139,17 @@ public void run()
         System.out.println("please enter what department the employee belongs to");
         System.out.println("Current departments: ");
 
-        //can create a list department method in the future.
+        //listing current department to user so they can decide what
+        //deparment they would like to add the user to
+        storage.listDepartments();
 
-        for(int i = 0; i < storage.departmentArrayList.size(); i++)
-        {
-            String dptName = storage.departmentArrayList.get(i).getDepartmentName();
-            System.out.println(dptName);
-        }
-
-        scanner.nextLine();// clearning newline sicne i used next() previously.
+        scanner.nextLine();// clearing newline from scanner obj sicne i used next() previously.
 
         while(true) {
 
             String userDepartmentChoice = scanner.nextLine();
-            boolean departmentFound = false;
+           // boolean departmentFound = false; // this maybe bad desicn along with the if statemment
+            //below using the departmentFound variable.
 
             /*
             looping through objectStorages's arraylist of Department objects called departmentArrayList and assigning
@@ -157,22 +164,27 @@ public void run()
 
                 if (dptName.equalsIgnoreCase(userDepartmentChoice)) //
                 {
-                    storage.departmentArrayList.get(i).departmentUserList.add(userObject);
+                    storage.departmentArrayList.get(i).departmentUserList.add(userObject);//issue
                     System.out.println("user added to " + dptName);
-                    break;
+                    return;
                 }//if
             }//for
 
+            /*
             if (departmentFound == false)
             {
-                break;
+                System.out.println("please enter a valid department name");
+                continue;
             }
+            */
+
 
             System.out.println("please enter a valid department name");
+            continue;
+
 
         }// while
 
-        return;// return to main menu after successfully adding user to user arraylist
 
     }//MENU EXIT VARIABLE
 

@@ -18,6 +18,14 @@ public class Department {
         return departmentName;
     }
 
+    public void displayUserList() // developing on 3/15 ***remove when done/verified
+    {
+        for(int i = 0; i < departmentUserList.size(); i++)
+        {
+            System.out.println(departmentUserList.get(i).getFirstName());
+        }
+    }
+
 
 
 
